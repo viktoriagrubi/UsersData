@@ -5,6 +5,7 @@ import UsersList from "./UsersList";
 function App() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchUsersData = async () => {
@@ -19,10 +20,22 @@ function App() {
 
   if (loading) return <div>Loading...</div>;
 
+  const filteredUsers = data.filter(
+    (user) =>
+      user.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.lastName.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div>
       <h1>Users List</h1>
-      <UsersList users={data} />
+      <input
+        type="text"
+        placeholder="Search users..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <UsersList users={filteredUsers} />
     </div>
   );
 }
