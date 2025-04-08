@@ -1,7 +1,7 @@
 import React from "react";
 import "./UsersList.css";
 
-function UsersList({ users }) {
+function UsersList({ users, deleteUser }) {
   return (
     <div className="users-container">
       {users.map((user) => (
@@ -14,6 +14,9 @@ function UsersList({ users }) {
             <p>Birth Date: {user.birthDate}</p>
             <p>City: {user.address.city}</p>
           </div>
+          <button className="delete-button" onClick={() => deleteUser(user.id)}>
+            X
+          </button>
         </div>
       ))}
     </div>

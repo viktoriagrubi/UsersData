@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 5px;
   padding: 10px;
+  border: 1px solid #ccc;
 }
 
 .user-card {
@@ -31,4 +32,20 @@
 p,
 h2 {
   margin: 3px;
+}
+
+.delete-button {
+  background-color: transparent;
+  color: red;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+  transition: transform 0.1s ease-in-out;
+}
+
+.delete-button:hover {
+  transform: scale(1.2);
+  color: darkred;
 }

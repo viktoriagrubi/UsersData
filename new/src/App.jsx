@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import UsersList from "./UsersList";
+import AddUser from "./AddUser";
 
 function App() {
   const [data, setData] = useState(null);
@@ -26,16 +27,31 @@ function App() {
       user.lastName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const addUser = (newUser) => {
+    const newUserWithId = {
+      ...newUser,
+      id: Date.now(),
+      address: { city: newUser.city },
+    };
+    setData([...data, newUserWithId]);
+  };
+
+  const deleteUser = (id) => {
+    setData(data.filter((user) => user.id !== id));
+  };
+
   return (
     <div>
       <h1>Users List</h1>
       <input
         type="text"
+        className="search-input"
         placeholder="Search users..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
-      <UsersList users={filteredUsers} />
+      <AddUser addUser={addUser} />
+      <UsersList users={filteredUsers} deleteUser={deleteUser} />
     </div>
   );
 }

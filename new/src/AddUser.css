@@ -1,0 +1,48 @@
+.add-user-container {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #9e9b9b;
+}
+
+.add-user-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.add-user-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-user-container label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #444;
+}
+
+.add-user-container input {
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.add-user-container button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #565d62;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.add-user-container button:hover {
+  background-color: #2980b9;
+}
