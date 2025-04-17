@@ -1,12 +1,14 @@
-.users-container {
+.usersContainer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 600px;
 }
 
-.user-card {
+.userCard {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
@@ -14,16 +16,17 @@
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   margin: 5px;
+  width: 100%;
 }
 
-.user-image {
+.userImage {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.user-info {
+.userInfo {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -34,7 +37,7 @@ h2 {
   margin: 3px;
 }
 
-.delete-button {
+.deleteButton {
   background-color: transparent;
   color: red;
   border: none;
@@ -45,7 +48,7 @@ h2 {
   transition: transform 0.1s ease-in-out;
 }
 
-.delete-button:hover {
+.deleteButton:hover {
   transform: scale(1.2);
   color: darkred;
 }

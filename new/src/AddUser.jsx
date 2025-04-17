@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./AddUser.css";
+import styles from "./AddUser.module.css";
 
 function AddUser({ addUser }) {
   const [firstName, setFirstName] = useState("");
@@ -26,7 +26,7 @@ function AddUser({ addUser }) {
   };
 
   return (
-    <div className="add-user-container">
+    <div className={styles.addUserContainer}>
       <h2>Add User</h2>
       <form onSubmit={handleSubmit}>
         <label>

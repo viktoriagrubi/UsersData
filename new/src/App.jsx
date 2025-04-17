@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import UsersList from "./UsersList";
 import AddUser from "./AddUser";
+import UserDetails from "./UserDetails";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState(null);
@@ -41,18 +43,27 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Users List</h1>
-      <input
-        type="text"
-        className="search-input"
-        placeholder="Search users..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div>
+            <h1 className={styles.title}>Users List</h1>
+
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Search users..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <AddUser addUser={addUser} />
+            <UsersList users={filteredUsers} deleteUser={deleteUser} />
+          </div>
+        }
       />
-      <AddUser addUser={addUser} />
-      <UsersList users={filteredUsers} deleteUser={deleteUser} />
-    </div>
+      <Route path="/user/:id" element={<UserDetails users={data} />} />
+    </Routes>
   );
 }
 
